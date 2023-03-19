@@ -44,22 +44,3 @@ Install and have your USB Rubber Ducky working in less than 5 minutes.
 14. Be careful, if your device isn't in [setup mode](#setup-mode), the device will reboot and after half a second, the script will run.
 
 15. **Please note:** by default Pico W will not show as a USB drive
-
-### Pico W Web Service
-The Pico W AP defaults to ip address `192.168.4.1`.  You should be able to find the webservice at `http://192.168.4.1:80`  
-
-The following endpoints are available on the webservice:
-```
-/
-/new
-/ducky
-/edit/<filename>
-/write/<filename>
-/run/<filename>
-```
-
-API endpoints
-```
-/api/run/<filenumber>
-```
-
