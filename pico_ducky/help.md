@@ -20,4 +20,7 @@
 	=> .\setup_pico_ducky.ps1 copy 
 	=> .\setup_pico_ducky.ps1 reset
 	=> .\setup_pico_ducky.ps1 info
+    payload
+        => https://github.com/hak5/usbrubberducky-payloads
+
 #>
