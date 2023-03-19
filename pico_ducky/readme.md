@@ -1,8 +1,11 @@
 # Raspberry Pico Rubber ducky 
-
-
-  Original Repository-Author <a href="https://github.com/dbisu/pico-ducky">dbisu</a> <br/> (https://github.com/dbisu/pico-ducky) <br/>
   <strong>Make a cheap but powerful USB Rubber Ducky with a Raspberry Pi Pico</strong>
+  
+        Note : This is a cloned repository | Might not be maintained regularly or doesn't reflect the updated version
+
+ ### Original Repository-Author <a href="https://github.com/dbisu/pico-ducky">dbisu</a>
+ (https://github.com/dbisu/pico-ducky) <br/>
+
 
 
 ## Install
