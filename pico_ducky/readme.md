@@ -44,3 +44,6 @@ Install and have your USB Rubber Ducky working in less than 5 minutes.
 14. Be careful, if your device isn't in [setup mode](#setup-mode), the device will reboot and after half a second, the script will run.
 
 15. **Please note:** by default Pico W will not show as a USB drive
+
+### Additional Files
+* [Pico Setup Mode](https://github.com/SanjeevStephan/mr_robot/blob/main/pico_ducky/dbisu-pico-ducky-github-repository/pico_setup_mode.md)
