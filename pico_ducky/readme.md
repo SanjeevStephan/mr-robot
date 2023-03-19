@@ -1,6 +1,8 @@
-<h1 align="center">pico-ducky</h1>
+<h1 align="center"> pico-ducky </h1>
+
 
 <div align="center">
+  Original Repository-Author <a href="https://github.com/dbisu/pico-ducky">dbisu</a> <br/> (https://github.com/dbisu/pico-ducky) <br/>
   <strong>Make a cheap but powerful USB Rubber Ducky with a Raspberry Pi Pico</strong>
 </div>
 
