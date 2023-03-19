@@ -1,3 +1,23 @@
+
+### Pico W Web Service
+The Pico W AP defaults to ip address `192.168.4.1`.  You should be able to find the webservice at `http://192.168.4.1:80`  
+
+The following endpoints are available on the webservice:
+```
+/
+/new
+/ducky
+/edit/<filename>
+/write/<filename>
+/run/<filename>
+```
+
+API endpoints
+```
+/api/run/<filenumber>
+```
+
+
 ### Setup mode
 
 To edit the payload, enter setup mode by connecting the pin 1 (`GP0`) to pin 3 (`GND`), this will stop the pico-ducky from injecting the payload in your own machine.
