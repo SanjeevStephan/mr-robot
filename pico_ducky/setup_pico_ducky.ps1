@@ -50,7 +50,7 @@ $local_adafruit_debouncer_mpy = "$circuitpython_dir_path\lib\adafruit_debouncer.
 $local_adafruit_ticks_mpy     = "$circuitpython_dir_path\lib\adafruit_ticks.mpy"
 
 
-$pico_ducky_location          = "$current_location\pico-ducky"
+$pico_ducky_location          = "$current_location\dbisu-pico-ducky-github-repository"
 $pico_ducky_boot              = "boot.py"
 $pico_duckyinpython           = "duckyinpython.py"
 $pico_ducky_code              = "code.py"
