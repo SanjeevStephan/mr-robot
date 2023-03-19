@@ -7,7 +7,10 @@
  (https://github.com/dbisu/pico-ducky) <br/>
 
 ## My Setup Script 
-* [setup_pico_ducky.ps1](https://github.com/SanjeevStephan/mr_robot/blob/main/pico_ducky/setup_pico_ducky.ps1)
+
+Automate the Process to Setup Pico as USB Rubber Ducky and get it working in less than a minutes.
+
+1. [setup_pico_ducky.ps1](https://github.com/SanjeevStephan/mr_robot/blob/main/pico_ducky/setup_pico_ducky.ps1)
 
 ## Install
 
