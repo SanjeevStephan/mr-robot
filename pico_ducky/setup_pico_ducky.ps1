@@ -35,7 +35,13 @@
 figlet "Setup Pico"
 
 #$script_location            = Get-Location
+$script_name                 = "setup_pico_ducky.ps1"
+$pico_payload                = "pico_payload.ps1"
+
 $script_location             = "D:\mr_robot\pico_ducky"
+$script_fpath                = "$script_location\$script_name"
+$pico_payload_fpath          = "$script_location\$pico_payload"
+
 
 $pico_drive                   = "F:\"
 $pico_lib                     = "F:\lib"
@@ -259,12 +265,16 @@ function Start_Pico($action) {
     
     # script_info # show script info
 
+
+
     switch($action) {
         "convert" { convert_to_circuit_py }
         "copy"    { verify_n_copy_lib }
         "reset"   { rest_pico }
         "info"    { script_info }
         "help"    { setup_help  }
+        "edit"    { powershell_ise.exe $script_fpath }
+        "payload" { Write-Output "try -> .\pico_payload.ps1" }
         Default { 
                 script_info # show script info
                 setup_help  # shoe script help
