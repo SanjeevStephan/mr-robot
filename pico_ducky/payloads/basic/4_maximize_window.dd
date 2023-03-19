@@ -1,0 +1,4 @@
+DELAY 5000
+GUI r
+STRING explorer
+F11

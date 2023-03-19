@@ -1,0 +1,5 @@
+DELAY 5000
+GUI r
+DELAY 100
+STRING you have been hacked!
+
