@@ -3,7 +3,7 @@
 To edit the payload, enter setup mode by connecting the pin 1 (`GP0`) to pin 3 (`GND`), this will stop the pico-ducky from injecting the payload in your own machine.
 The easiest way to do so is by using a jumper wire between those pins as seen bellow.
 
-![Setup mode with a jumper](dbisu-pico-ducky-github-repository/images/setup-mode.png)
+![Setup mode with a jumper](images/setup-mode.png)
 
 ### USB enable/disable mode
 
@@ -18,7 +18,7 @@ This will prevent the pico-ducky from showing up as a USB drive when plugged int
 Pico: The default mode is USB mass storage enabled.   
 Pico W: The default mode is USB mass storage **disabled**  
 
-![USB enable/disable mode](dbisu-pico-ducky-github-repository/images/usb-boot-mode.png)
+![USB enable/disable mode](images/usb-boot-mode.png)
 
 ### Multiple payloads
 
