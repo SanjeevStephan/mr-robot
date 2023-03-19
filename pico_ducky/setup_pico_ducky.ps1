@@ -14,8 +14,12 @@
 .PYLOADS
     - https://github.com/hak5/usbrubberducky-payloads/blob/master/payloads/library/prank/Hacker_Typer/payload.txt
 
-.GITHUB
-    - 
+.YOUTUBE
+    - bad USBs are SCARY!! 
+        (build one with a Raspberry Pi Pico for $8) ( https://www.youtube.com/watch?v=e_f9p-_JWZw ) 
+
+    - Bad USB Using Raspberry Pi Pico! 
+        ( https://www.youtube.com/watch?v=xzbBJbIhzj8 )
 #>
 
 
@@ -28,9 +32,10 @@
    $what_to_return = "GoodBye! Pico"
 
 
-figlet "Raspberry Pico"
+figlet "Setup Pico"
 
-$current_location             = Get-Location
+#$script_location            = Get-Location
+$script_location             = "D:\mr_robot\pico_ducky"
 
 $pico_drive                   = "F:\"
 $pico_lib                     = "F:\lib"
@@ -41,7 +46,9 @@ $uf2_default_info             = "INFO_UF2.TXT"
 $uf2_circuit_py_at_pico       = $pico_drive + "code.py"
 $adafruit_hid_lib             = "lib\" + "adafruit_hid"
 $circuitpython_bundle_dirname = "adafruit-circuitpython-bundle-8.x-mpy-20230319"
-$circuitpython_dir_path       = "$current_location\$circuitpython_bundle_dirname"
+$circuitpython_dir_path       = "$script_location\$circuitpython_bundle_dirname"
+
+$setup_help_fname             = "help.md"
 
 $local_adafruit_hid           = "$circuitpython_dir_path\$adafruit_hid_lib"
 $local_asyncio_lib            = "$circuitpython_dir_path\lib\asyncio"
@@ -50,7 +57,7 @@ $local_adafruit_debouncer_mpy = "$circuitpython_dir_path\lib\adafruit_debouncer.
 $local_adafruit_ticks_mpy     = "$circuitpython_dir_path\lib\adafruit_ticks.mpy"
 
 
-$pico_ducky_location          = "$current_location\dbisu-pico-ducky-github-repository"
+$pico_ducky_location          = "$script_location\dbisu-pico-ducky-github-repository"
 $pico_ducky_boot              = "boot.py"
 $pico_duckyinpython           = "duckyinpython.py"
 $pico_ducky_code              = "code.py"
@@ -73,8 +80,10 @@ $setup_var = @{
 "uf2_reset_pico"               = "$uf2_reset_pico"
 "uf2_default_info"             = "$uf2_default_info"
 
-"uf2_circuit_py_fpath"          = "$current_location\$uf2_directory\$uf2_circuit_py"
-"uf2_reset_pico_fpath"          = "$current_location\$uf2_directory\$uf2_reset_pico"
+"setup_help_file"              = "$setup_help_fname"
+
+"uf2_circuit_py_fpath"          = "$script_location\$uf2_directory\$uf2_circuit_py"
+"uf2_reset_pico_fpath"          = "$script_location\$uf2_directory\$uf2_reset_pico"
 
 "adafruit_hid_lib"             = "$adafruit_hid_lib"
 "circuitpython_bundle_dirname" = "$circuitpython_bundle_dirname"
@@ -98,6 +107,10 @@ function script_info() {
 $script_info.GetEnumerator() | Sort-Object | Format-Table @{label="Script Info"; expression={$_.Key}}, @{label="Description"; expression={$_.Value}} -AutoSize
 $setup_var.GetEnumerator() | Sort-Object | Format-Table @{label="Script Paths"; expression={$_.Key}}, @{label="Description"; expression={$_.Value}} -AutoSize
 
+}
+function setup_help() {
+$help_file_path = "$script_location\$setup_help_fname"
+cat $help_file_path  
 }
 
 function copy_necessary_library() {
@@ -131,6 +144,15 @@ function copy_additonal_files() {
 function copy_adafruit_circuitpython_raspberry_pi_pico_uf2() { copy $setup_var["uf2_circuit_py_fpath"] $setup_var["pico_drive"] }
 function copy_flash_nuke_uf2() { copy $setup_var["uf2_reset_pico_fpath"] $setup_var["pico_drive"] }
 
+function did_u_want_to_copy_necessary_files() {
+    Write-Output "[Input] Did you want to copy necessary files to CIRCUIT_PYTHON (y/n) : "
+          
+    $choice = read_pico("Press 'y' or 'n'")
+    if($choice -eq "y") {}
+    else { Write-Output "Until NeXt time! ./~superuser"}
+
+}
+
 function convert_to_circuit_py() {
 # Copy [uf2] to the pico at F:/
 figlet "Copying Circuit-Py"
@@ -151,6 +173,10 @@ figlet "Copying Circuit-Py"
             cat $uf2_circuit_py_at_pico # Reading the 'code.py' located at path [F:\code.py]
             Write-Output "----------------------------"
             Write-Output "[Converted] Pico has been Successfully Converted to Circuit-Python"
+
+            did_u_want_to_copy_necessary_files # ask the superuser if he want to copy the necessary files to pico
+
+
         }
         else { Write-Output "Unable to copy file to pico"} 
     } else { Write-Output "[Not-Found] Pico Drive $pico_drive unavailable"}
@@ -159,7 +185,10 @@ figlet "Copying Circuit-Py"
 function verify_n_copy_lib() {
 figlet "Copying Pico HID"
 
-Write-Output "Executed from Location : $current_location"
+Write-Output "Executed from Location : $script_location"
+
+$choice = read_pico("Copy Necessary files to CIRCUIT_PYTHON (y/n) :")
+Write-Output "YOu have selected $choice ! Very Well"
 
 
 if (Test-Path $pico_lib)  # checks for F:\lib | if exists -> proceed
@@ -224,6 +253,7 @@ $choice = Read-Host "[INPUT] Did you see an empty drive with name 'RPI-RP2' (y/n
 
 
 function debug($msg){ Write-Output "[DEBUG] $msg"}
+function read_pico($msg) { return Read-Host "pico@raspberrypi~/ : $msg" }
 
 function Start_Pico($action) {
     
@@ -234,8 +264,10 @@ function Start_Pico($action) {
         "copy"    { verify_n_copy_lib }
         "reset"   { rest_pico }
         "info"    { script_info }
+        "help"    { setup_help  }
         Default { 
                 script_info # show script info
+                setup_help  # shoe script help
                 Write-Output "Invalid Argument Received"
                 }
     }
