@@ -6,7 +6,7 @@
 ### Original Repository-Author <a href="https://github.com/dbisu/pico-ducky">dbisu</a>
  (https://github.com/dbisu/pico-ducky) <br/>
 
-### My Setup Script 
+## My Setup Script 
 * [setup_pico_ducky.ps1](https://github.com/SanjeevStephan/mr_robot/blob/main/pico_ducky/setup_pico_ducky.ps1)
 
 ## Install
