@@ -1,22 +1,9 @@
-<h1 align="center"> pico-ducky </h1>
+# Raspberry Pico Rubber ducky 
 
 
-<div align="center">
   Original Repository-Author <a href="https://github.com/dbisu/pico-ducky">dbisu</a> <br/> (https://github.com/dbisu/pico-ducky) <br/>
   <strong>Make a cheap but powerful USB Rubber Ducky with a Raspberry Pi Pico</strong>
-</div>
 
-<br />
-
-<div align="center">
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/dbisu/pico-ducky">
-  <img alt="GitHub license" src="https://img.shields.io/github/license/dbisu/pico-ducky">
-  <a href="https://github.com/dbisu/pico-ducky/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/dbisu/pico-ducky"></a>
-  <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/dbisu/pico-ducky">
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/dbisu/pico-ducky">
-</div>
-
-<br />
 
 ## Install
 
