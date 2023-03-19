@@ -32,7 +32,7 @@
    $what_to_return = "GoodBye! Pico"
 
 
-figlet "Setup Pico"
+figlet "Raspberry Pico"
 
 #$script_location            = Get-Location
 $script_name                 = "setup_pico_ducky.ps1"
@@ -161,7 +161,7 @@ function did_u_want_to_copy_necessary_files() {
 
 function convert_to_circuit_py() {
 # Copy [uf2] to the pico at F:/
-figlet "Copying Circuit-Py"
+figlet "Convert to Circuit-Py"
 
     if(Test-Path $pico_drive)  # if F:\ available -> proceed
     {
@@ -189,7 +189,8 @@ figlet "Copying Circuit-Py"
 
 }
 function verify_n_copy_lib() {
-figlet "Copying Pico HID"
+figlet "Setup Pico"
+#figlet "Copying Pico HID"
 
 Write-Output "Executed from Location : $script_location"
 
@@ -256,6 +257,10 @@ $choice = Read-Host "[INPUT] Did you see an empty drive with name 'RPI-RP2' (y/n
     } else { Write-Output "Please Try Again..and re-run the setup" }
 
 }
+function edit_pico() {
+figlet "Edit Pico"
+powershell_ise.exe $script_fpath
+}
 
 
 function debug($msg){ Write-Output "[DEBUG] $msg"}
@@ -265,7 +270,7 @@ function Start_Pico($action) {
     
     # script_info # show script info
 
-
+    clear # Clear the screen to make the terminal look nice 
 
     switch($action) {
         "convert" { convert_to_circuit_py }
@@ -273,7 +278,7 @@ function Start_Pico($action) {
         "reset"   { rest_pico }
         "info"    { script_info }
         "help"    { setup_help  }
-        "edit"    { powershell_ise.exe $script_fpath }
+        "edit"    { edit_pico }
         "payload" { Write-Output "try -> .\pico_payload.ps1" }
         Default { 
                 script_info # show script info
