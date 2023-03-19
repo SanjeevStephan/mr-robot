@@ -1,0 +1,7 @@
+DELAY 1000
+GUI r
+DELAY 100
+STRING brave https://www.youtube.com/watch?v=dQw4w9WgXcQ
+DELAY 10
+ENTER
+F11
