@@ -3,10 +3,11 @@
   
         Note : This is a cloned repository | Might not be maintained regularly or doesn't reflect the updated version
 
- ### Original Repository-Author <a href="https://github.com/dbisu/pico-ducky">dbisu</a>
+### Original Repository-Author <a href="https://github.com/dbisu/pico-ducky">dbisu</a>
  (https://github.com/dbisu/pico-ducky) <br/>
 
-
+### My Setup Script 
+* [setup_pico_ducky.ps1](https://github.com/SanjeevStephan/mr_robot/blob/main/pico_ducky/setup_pico_ducky.ps1)
 
 ## Install
 
