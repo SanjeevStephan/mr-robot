@@ -1,13 +1,17 @@
+REM Type ASCII Art of Monalisa Painting
+REM Target: Windows 95 and beyond. Author: Darren
 DELAY 1000
 GUI m
 DELAY 100
 GUI r
-DELAY 300
+DELAY 100
 STRING notepad
-DELAY 20
 ENTER
-F11
-DELAY 200
+DELAY 1000
+STRING Hello World
+ENTER
+STRING Automatically Creating the ASCII Art Painting of Monalisa on Notepad.Wait and Watch!
+ENTER
 ALT SPACE
 DELAY 20
 STRING x
