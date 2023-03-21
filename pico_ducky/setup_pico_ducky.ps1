@@ -109,6 +109,7 @@ $setup_var = @{
 
 
 function script_info() {
+figlet "Pico Info"
 
 $script_info.GetEnumerator() | Sort-Object | Format-Table @{label="Script Info"; expression={$_.Key}}, @{label="Description"; expression={$_.Value}} -AutoSize
 $setup_var.GetEnumerator() | Sort-Object | Format-Table @{label="Script Paths"; expression={$_.Key}}, @{label="Description"; expression={$_.Value}} -AutoSize
@@ -154,7 +155,7 @@ function did_u_want_to_copy_necessary_files() {
     Write-Output "[Input] Did you want to copy necessary files to CIRCUIT_PYTHON (y/n) : "
           
     $choice = read_pico("Press 'y' or 'n'")
-    if($choice -eq "y") {}
+    if($choice -eq "y") { verify_n_copy_lib <#verify and copy the files to pico #> }
     else { Write-Output "Until NeXt time! ./~superuser"}
 
 }
@@ -194,8 +195,8 @@ figlet "Setup Pico"
 
 Write-Output "Executed from Location : $script_location"
 
-$choice = read_pico("Copy Necessary files to CIRCUIT_PYTHON (y/n) :")
-Write-Output "YOu have selected $choice ! Very Well"
+# $choice = read_pico("Copy Necessary files to CIRCUIT_PYTHON (y/n) :")
+# Write-Output "YOu have selected $choice ! Very Well"
 
 
 if (Test-Path $pico_lib)  # checks for F:\lib | if exists -> proceed
