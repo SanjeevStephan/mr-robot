@@ -1,4 +1,6 @@
 DELAY 1000
+GUI m
+DELAY 100
 GUI r
 DELAY 100
 STRING brave https://www.youtube.com/watch?v=dQw4w9WgXcQ
