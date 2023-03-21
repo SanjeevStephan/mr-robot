@@ -36,11 +36,11 @@ figlet "Raspberry Pico"
 
 #$script_location            = Get-Location
 $script_name                 = "setup_pico_ducky.ps1"
-$pico_payload                = "pico_payload.ps1"
+$pico_payload_fname          = "pico_payload.ps1"
 
 $script_location             = "D:\mr_robot\pico_ducky"
 $script_fpath                = "$script_location\$script_name"
-$pico_payload_fpath          = "$script_location\$pico_payload"
+$pico_payload_fname_fpath          = "$script_location\$pico_payload_fname"
 
 
 $pico_drive                   = "F:\"
@@ -50,6 +50,7 @@ $uf2_circuit_py               = "adafruit-circuitpython-raspberry_pi_pico-en_US-
 $uf2_reset_pico               = "flash_nuke.uf2"
 $uf2_default_info             = "INFO_UF2.TXT"
 $uf2_circuit_py_at_pico       = $pico_drive + "code.py"
+
 $adafruit_hid_lib             = "lib\" + "adafruit_hid"
 $circuitpython_bundle_dirname = "adafruit-circuitpython-bundle-8.x-mpy-20230319"
 $circuitpython_dir_path       = "$script_location\$circuitpython_bundle_dirname"
@@ -74,8 +75,14 @@ $pico_duck_wsgiserver         = "wsgiserver.py"
 $script_info = @{
     "script_name" = "setup_pico_ducky.ps1"
     "script_type" = "powershell script"
+    "script_fpath" = "$script_fpath"
+    "script_location" = "$script_location"
+    "script_version"  = "version 1.0.0"
     "executable_type"="command line argument"
     "script_help"   = "setup_help.txt"
+    "pico_payload_fname" = "$pico_payload_fname"
+    "pico_payload_fname_fpath" = "$pico_payload_fname_fpath"
+
 }
 
 $setup_var = @{
@@ -85,11 +92,13 @@ $setup_var = @{
 "uf2_circuit_py"               = "$uf2_circuit_py"
 "uf2_reset_pico"               = "$uf2_reset_pico"
 "uf2_default_info"             = "$uf2_default_info"
+"uf2_directory"                = "$uf2_directory"
 
-"setup_help_file"              = "$setup_help_fname"
+"setup_help_fname"              = "$setup_help_fname"
 
 "uf2_circuit_py_fpath"          = "$script_location\$uf2_directory\$uf2_circuit_py"
 "uf2_reset_pico_fpath"          = "$script_location\$uf2_directory\$uf2_reset_pico"
+"uf2_circuit_py_at_pico"        = "$uf2_circuit_py_at_pico"
 
 "adafruit_hid_lib"             = "$adafruit_hid_lib"
 "circuitpython_bundle_dirname" = "$circuitpython_bundle_dirname"
@@ -100,6 +109,7 @@ $setup_var = @{
 "local_adafruit_debouncer_mpy" = "$local_adafruit_debouncer_mpy"
 "local_adafruit_ticks_mpy"     = "$local_adafruit_ticks_mpy"
 
+"pico_ducky_location"          = "$pico_ducky_location"
 "pico_ducky_boot"              = "$pico_ducky_location\$pico_ducky_boot"
 "pico_duckyinpython"           = "$pico_ducky_location\$pico_duckyinpython "
 "pico_ducky_code"              = "$pico_ducky_location\$pico_ducky_code"
@@ -280,7 +290,7 @@ function Start_Pico($action) {
         "info"    { script_info }
         "help"    { setup_help  }
         "edit"    { edit_pico }
-        "payload" { Write-Output "try -> .\pico_payload.ps1" }
+        "payload" { Write-Output "try -> .\pico_payload_fname.ps1" }
         Default { 
                 script_info # show script info
                 setup_help  # shoe script help
